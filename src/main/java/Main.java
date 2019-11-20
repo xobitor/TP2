@@ -83,6 +83,5 @@ public class Main {
         System.out.println("Percentagem completa: " + (int)shpList.getPercentageCompleted() + "%\n");
         System.out.println("---------------------------\n");
 
-
     }
 }
