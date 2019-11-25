@@ -31,9 +31,9 @@ public class ShoppingList {
         return ProductList2.size();
     }
 
-    public float getPercentageCompleted(){
-        float total;
-        total = ((float)getTotalOfProductsOnShoppingCart()/getTotalOfProductsOffShoppingCart());
+    public double getPercentageCompleted(){
+        double total;
+        total = (float)getTotalOfProductsOnShoppingCart()/(getTotalOfProductsOffShoppingCart() + getTotalOfProductsOnShoppingCart());
         total = total * 100;
         return total;
     }
@@ -45,17 +45,17 @@ public class ShoppingList {
         }
         return total;
     }
-    public double getPriceOffShoppingCart(){
-        double total = 0.0;
+    public float getPriceOffShoppingCart(){
+        float total = 0;
         int i;
         for (i=0; i < ProductList1.size(); i++){
             total += ProductList1.get(i).getPrice();
         }
         return total;
     }
-    public double getTotalPrice(){
+    public float getTotalPrice(){
 
-        return getPriceOnShoppingCart() + getPriceOffShoppingCart();
+        return (float)getPriceOnShoppingCart() + getPriceOffShoppingCart();
     }
 
     public void setListName(String listName){

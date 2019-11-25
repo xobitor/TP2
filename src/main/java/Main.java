@@ -50,7 +50,7 @@ public class Main {
 
         //ADICIONAR 2 PRODUTOS AO CARRINHO, DA LISTA DE COMPRAS
         shpList.addProductToShoppingCart(product2);
-        shpList.addProductToShoppingCart(product7);
+        shpList.addProductToShoppingCart(product5);
 
         //INÍCIO DO OUTPUT
         System.out.println("--------------------------");
@@ -82,6 +82,41 @@ public class Main {
         System.out.println("Total de produtos: " + shpList.getTotalOfProducts() + "\nPreco final: " + shpList.getTotalPrice() + " euros\n");
         System.out.println("Percentagem completa: " + (int)shpList.getPercentageCompleted() + "%\n");
         System.out.println("---------------------------\n");
+        System.out.println("Produtos por categoria:");
+        List<Product> cat1 = new ArrayList<>();
+        List<Product> cat2 = new ArrayList<>();
+        List<Product> cat3 = new ArrayList<>();
+
+        for (i=0; i < onCart.size(); i++){
+            if (onCart.get(i).getCategoryColor() == "Azul"){
+                cat1.add(onCart.get(i));
+            } else if (onCart.get(i).getCategoryColor() == "Amarelo") {
+                cat2.add(onCart.get(i));
+            } else {
+                cat3.add(onCart.get(i));
+            }
+        }
+        if (cat1.size() != 0){
+            System.out.println(cat1.get(0).getCategoryName());
+            for (i=0; i<cat1.size(); i++){
+                System.out.println(cat1.get(i).getName() + " - " + cat1.get(i).getPrice() + " euros\\" + cat1.get(i).getUnityType());
+            }
+            System.out.println("\n");
+        }
+        if (cat2.size() != 0){
+            System.out.println(cat2.get(0).getCategoryName());
+            for (i=0; i<cat2.size(); i++){
+                System.out.println(cat2.get(i).getName() + " - " + cat2.get(i).getPrice() + " euros\\" + cat2.get(i).getUnityType() + "\n");
+            }
+            System.out.println("\n");
+        }
+        if (cat3.size() != 0){
+            System.out.println(cat3.get(0).getCategoryName());
+            for (i=0; i<cat3.size(); i++){
+                System.out.println(cat3.get(i).getName() + " - " + cat3.get(i).getPrice() + " euros\\" + cat3.get(i).getUnityType() + "\n");
+            }
+            System.out.println("\n");
+        }
 
     }
 }
