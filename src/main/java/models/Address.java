@@ -5,6 +5,8 @@ public class Address {
     private int doorNo;
     private int postalCode;
 
+    public Address(){}
+
     public Address (String streetName, int doorNo, int postalCode){
         this.streetName = streetName;
         this.doorNo = doorNo;

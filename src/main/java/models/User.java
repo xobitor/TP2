@@ -6,12 +6,20 @@ public class User {
     private String email;
     private String password;
     private Address address;
+    private int maxValue;
 
-    public User (String name, String email, String password, Address address){
+    public User(){
+        this.name = "";
+        this.email = "";
+        this.password  = "";
+    }
+
+    public User (String name, String email, String password, Address address, int maxValue){
         this.name = name;
         this.email = email;
         this.password = password;
         this.address = address;
+        this.maxValue = maxValue;
     }
 
     public String getName(){
@@ -26,6 +34,9 @@ public class User {
     public Address getAddress(){
         return this.address;
     }
+    public int getMaxValue() {
+        return this.maxValue;
+    }
 
     public void setName(String name){
         this.name = name;
@@ -39,4 +50,5 @@ public class User {
     public void setAddress(Address address){
         this.address = address;
     }
+    public void setMaxValue(int maxValue) {this.maxValue = maxValue;}
 }

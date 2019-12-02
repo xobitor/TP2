@@ -8,14 +8,16 @@ public class Product {
     private Category category;
     private double price;
     private String unityType;
+    private Brand brand;
 
-    public Product (String name, String description, String picture, Category category, double price, String unityType){
+    public Product (String name, String description, String picture, Category category, double price, String unityType, Brand brand){
         this.name = name;
         this.description = description;
         this.picture = picture;
         this.category = category;
         this.price = price;
         this.unityType = unityType;
+        this.brand = brand;
     }
 
     public String getName(){

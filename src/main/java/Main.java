@@ -12,8 +12,8 @@ public class Main {
         Address address1 = new Address ("Rua 42", 34, 4710);
         Address address2 = new Address ("Avenida Zé Carlos", 2, 4500);
 
-        User user1 = new User ("Tiago", "tiago@mail.com", "password", address1);
-        User user2 = new User ("Sara", "sara@mail.com", "drowssap", address2);
+        User user1 = new User ("Tiago", "tiago@mail.com", "password", address1, 1000);
+        User user2 = new User ("Sara", "sara@mail.com", "drowssap", address2, 500);
 
         List<User> userList = new ArrayList<User>();
         userList.add(user1);
@@ -25,17 +25,22 @@ public class Main {
         Category category1 = new Category ("Mercearia", "Arroz, massa", "Azul");
         Category category2 = new Category ("Fruta", "Maçãs, Bananas", "Amarelo");
         Category category3 = new Category ("Talho", "Carne fresca", "Vermelho");
+        Brand brand1 = new Brand();
 
-        Product product1 = new Product ("Arroz agulha", "Arroz agulha generico", "picture", category1, 0.99, "un");
-        Product product2 = new Product ("Mom's spaghetti", "Mom's spaghetti", "picture", category1, 0.89, "un");
-        Product product3 = new Product ("Banana", "Banana da Madeira", "picture", category2, 1.00, "kg");
-        Product product4 = new Product ("Peras Embaladas", "10x peras embaladas", "picture", category2, 1.19, "un");
-        Product product5 = new Product ("Lombo de porco", "Lombinho de porquinho", "picture", category3, 3.00, "kg");
-        Product product6 = new Product ("Carne picada de porco", "Carne picada", "picture", category3, 2.89, "kg");
-        Product product7 = new Product ("Sal grosso", "Embalagem com 1kg de sal grosso", "picture", category1, 0.49, "un");
+        Product product1 = new Product ("Arroz agulha", "Arroz agulha generico", "picture", category1, 0.99, "un", brand1);
+        Product product2 = new Product ("Mom's spaghetti", "Mom's spaghetti", "picture", category1, 0.89, "un", brand1);
+        Product product3 = new Product ("Banana", "Banana da Madeira", "picture", category2, 1.00, "kg", brand1);
+        Product product4 = new Product ("Peras Embaladas", "10x peras embaladas", "picture", category2, 1.19, "un", brand1);
+        Product product5 = new Product ("Lombo de porco", "Lombinho de porquinho", "picture", category3, 3.00, "kg", brand1);
+        Product product6 = new Product ("Carne picada de porco", "Carne picada", "picture", category3, 2.89, "kg", brand1);
+        Product product7 = new Product ("Sal grosso", "Embalagem com 1kg de sal grosso", "picture", category1, 0.49, "un", brand1);
+        Product product8 = new Product ("Este produto", "Isto e aquilo", "picture", category3, 1.50, "kg", brand1);
 
 
         ShoppingList shpList = new ShoppingList("Lista de Compras", user1, userList, offCart, onCart); //Criação da Lista de Compras
+
+        ShoppingList emptyLst = new ShoppingList();
+
 
         shpList.addUserToUserList(user2); //Adicionar utilizador para partilhar a lista
 
@@ -47,6 +52,7 @@ public class Main {
         shpList.addProduct(product5);
         shpList.addProduct(product6);
         shpList.addProduct(product7);
+        shpList.addProduct(product8);
 
         //ADICIONAR 2 PRODUTOS AO CARRINHO, DA LISTA DE COMPRAS
         shpList.addProductToShoppingCart(product2);
@@ -60,6 +66,7 @@ public class Main {
         System.out.println("Users:");
         for (i = 0; i < userList.size(); i++){
             System.out.println(userList.get(i).getName() + "\n");
+            System.out.println("Planfound: " + userList.get(i).getMaxValue());
         }
         System.out.println("---------------------------\n");
 
@@ -117,6 +124,8 @@ public class Main {
             }
             System.out.println("\n");
         }
+
+        System.out.println("Percentage Comp: " + emptyLst.getPercentageCompleted());
 
     }
 }

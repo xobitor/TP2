@@ -9,6 +9,11 @@ public class ShoppingList {
     List<Product> ProductList1; //products not in cart
     List<Product> ProductList2; //products in cart
 
+    public ShoppingList(){
+        this.listName = "";
+        this.user = new User();
+    }
+
     public ShoppingList (String listName, User user, List<User> userList, List<Product> productList1, List<Product> productList2){
         this.listName = listName;
         this.user = user;
@@ -32,6 +37,8 @@ public class ShoppingList {
     }
 
     public double getPercentageCompleted(){
+
+
         double total;
         total = (float)getTotalOfProductsOnShoppingCart()/(getTotalOfProductsOffShoppingCart() + getTotalOfProductsOnShoppingCart());
         total = total * 100;
