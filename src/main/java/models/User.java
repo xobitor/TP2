@@ -12,6 +12,8 @@ public class User {
         this.name = "";
         this.email = "";
         this.password  = "";
+        this.address = new Address();
+        this.maxValue = 0;
     }
 
     public User (String name, String email, String password, Address address, int maxValue){

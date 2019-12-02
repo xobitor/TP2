@@ -6,6 +6,13 @@ public class Brand {
     private String nome;
 
     public Brand(){
+        this.id = 0;
+        this.nome = "";
+    }
+
+    public Brand (int id, String nome){
+        this.id = id;
+        this.nome = nome;
     }
 
     public int getId() {

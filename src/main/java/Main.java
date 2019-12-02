@@ -12,6 +12,7 @@ public class Main {
         Address address1 = new Address ("Rua 42", 34, 4710);
         Address address2 = new Address ("Avenida Zé Carlos", 2, 4500);
 
+        //CRIAÇÃO DE USERS JÁ COM O PLANFOUND
         User user1 = new User ("Tiago", "tiago@mail.com", "password", address1, 1000);
         User user2 = new User ("Sara", "sara@mail.com", "drowssap", address2, 500);
 
@@ -25,6 +26,8 @@ public class Main {
         Category category1 = new Category ("Mercearia", "Arroz, massa", "Azul");
         Category category2 = new Category ("Fruta", "Maçãs, Bananas", "Amarelo");
         Category category3 = new Category ("Talho", "Carne fresca", "Vermelho");
+
+        //CRIAÇÃO DE INSTÂNCIA DA CLASSE BRAND E DEFINIÇÃO DE PRODUTOS JÁ COM ESTA CLASSE
         Brand brand1 = new Brand();
 
         Product product1 = new Product ("Arroz agulha", "Arroz agulha generico", "picture", category1, 0.99, "un", brand1);
@@ -39,6 +42,7 @@ public class Main {
 
         ShoppingList shpList = new ShoppingList("Lista de Compras", user1, userList, offCart, onCart); //Criação da Lista de Compras
 
+        //CRIAR UMA NOVA LISTA DE COMPRAS VAZIA
         ShoppingList emptyLst = new ShoppingList();
 
 
@@ -52,6 +56,7 @@ public class Main {
         shpList.addProduct(product5);
         shpList.addProduct(product6);
         shpList.addProduct(product7);
+        //ADICIONAR NOVO PRODUTO À LISTA DE COMPRAS
         shpList.addProduct(product8);
 
         //ADICIONAR 2 PRODUTOS AO CARRINHO, DA LISTA DE COMPRAS
@@ -63,10 +68,11 @@ public class Main {
         System.out.println(shpList.getListName());
         System.out.println("--------------------------");
 
+        //IMPRESSÃO DO NOME DOS USERS JUNTAMENTE COM O PLANFOUND
         System.out.println("Users:");
         for (i = 0; i < userList.size(); i++){
-            System.out.println(userList.get(i).getName() + "\n");
-            System.out.println("Planfound: " + userList.get(i).getMaxValue());
+            System.out.println(userList.get(i).getName());
+            System.out.println("Planfound: " + userList.get(i).getMaxValue() + "\n");
         }
         System.out.println("---------------------------\n");
 
@@ -125,7 +131,8 @@ public class Main {
             System.out.println("\n");
         }
 
-        System.out.println("Percentage Comp: " + emptyLst.getPercentageCompleted());
+        //IMPRESSÃO DA PERCENTAGEM COMPLETA DA LISTA DE COMPRAS VAZIA CRIADA ACIMA (0%)
+        System.out.println("Percentage Completed: " + emptyLst.getPercentageCompleted() + "%");
 
     }
 }

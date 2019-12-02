@@ -10,6 +10,15 @@ public class Product {
     private String unityType;
     private Brand brand;
 
+    public Product(){
+        this.name = "";
+        this.description = "";
+        this.picture = "";
+        this.category = new Category();
+        this.unityType = "";
+        this.brand = new Brand();
+    }
+
     public Product (String name, String description, String picture, Category category, double price, String unityType, Brand brand){
         this.name = name;
         this.description = description;
@@ -44,6 +53,7 @@ public class Product {
     public String getUnityType(){
         return this.unityType;
     }
+    public Brand getBrand() { return this.brand; }
 
     public void setName(String name){
         this.name = name;
@@ -69,4 +79,5 @@ public class Product {
     public void setUnityType(String unityType){
         this.unityType = unityType;
     }
+    public void setBrand(Brand brand) { this.brand = brand; }
 }

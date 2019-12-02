@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingList {
@@ -12,6 +13,10 @@ public class ShoppingList {
     public ShoppingList(){
         this.listName = "";
         this.user = new User();
+        this.userList = new ArrayList<User>();
+        this.ProductList1 = new ArrayList<Product>();
+        this.ProductList2 = new ArrayList<Product>();
+
     }
 
     public ShoppingList (String listName, User user, List<User> userList, List<Product> productList1, List<Product> productList2){
@@ -38,10 +43,14 @@ public class ShoppingList {
 
     public double getPercentageCompleted(){
 
-
         double total;
-        total = (float)getTotalOfProductsOnShoppingCart()/(getTotalOfProductsOffShoppingCart() + getTotalOfProductsOnShoppingCart());
-        total = total * 100;
+        if (getTotalOfProductsOnShoppingCart() != 0 || getTotalOfProductsOffShoppingCart() != 0) {
+            total = (float) getTotalOfProductsOnShoppingCart() / (getTotalOfProductsOffShoppingCart() + getTotalOfProductsOnShoppingCart());
+            total = total * 100;
+        }
+        else {
+            total = 0;
+        }
         return total;
     }
     public double getPriceOnShoppingCart(){
